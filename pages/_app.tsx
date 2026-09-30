@@ -12,6 +12,15 @@ import {
   RainbowKitProvider,
   darkTheme,
 } from '@rainbow-me/rainbowkit';
+import {
+  coinbaseWallet,
+  ledgerWallet,
+  metaMaskWallet,
+  phantomWallet,
+  rainbowWallet,
+  trustWallet,
+  walletConnectWallet,
+} from '@rainbow-me/rainbowkit/wallets';
 import '@rainbow-me/rainbowkit/styles.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -36,6 +45,20 @@ const walletConnectProjectId =
 const wagmiConfig = getDefaultConfig({
   appName: 'Drain — Asset Console',
   projectId: walletConnectProjectId,
+  wallets: [
+    {
+      groupName: 'Recommended',
+      wallets: [
+        rainbowWallet,
+        metaMaskWallet,
+        coinbaseWallet,
+        walletConnectWallet,
+        trustWallet,
+        phantomWallet,
+        ledgerWallet,
+      ],
+    },
+  ],
   chains: [
     mainnet,
     polygon,
