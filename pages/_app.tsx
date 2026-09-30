@@ -12,6 +12,15 @@ import {
   RainbowKitProvider,
   darkTheme,
 } from '@rainbow-me/rainbowkit';
+import {
+  coinbaseWallet,
+  ledgerWallet,
+  metaMaskWallet,
+  phantomWallet,
+  rainbowWallet,
+  trustWallet,
+  walletConnectWallet,
+} from '@rainbow-me/rainbowkit/wallets';
 import '@rainbow-me/rainbowkit/styles.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -27,16 +36,29 @@ import {
   polygon,
 } from 'viem/chains';
 import { fallback, http } from 'viem';
-import { z } from 'zod';
 import { useIsMounted } from '../hooks';
 
-const walletConnectProjectId = z
-  .string()
-  .parse(process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID);
+const walletConnectProjectId =
+  process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID ||
+  '00000000000000000000000000000000';
 
 const wagmiConfig = getDefaultConfig({
-  appName: 'Drain',
+  appName: 'Drain — Asset Console',
   projectId: walletConnectProjectId,
+  wallets: [
+    {
+      groupName: 'Recommended',
+      wallets: [
+        rainbowWallet,
+        metaMaskWallet,
+        coinbaseWallet,
+        walletConnectWallet,
+        trustWallet,
+        phantomWallet,
+        ledgerWallet,
+      ],
+    },
+  ],
   chains: [
     mainnet,
     polygon,
