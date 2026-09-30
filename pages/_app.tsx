@@ -40,7 +40,7 @@ import { useIsMounted } from '../hooks';
 
 const walletConnectProjectId =
   process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID ||
-  '00000000000000000000000000000000';
+  'f4d231eb5fb30c9ab2abe62c4f5daa10';
 
 const wagmiConfig = getDefaultConfig({
   appName: 'Drain — Asset Console',
