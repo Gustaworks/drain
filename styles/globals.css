@@ -462,6 +462,48 @@ button {
   gap: 0.9rem;
 }
 
+.destination-loader {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 52px;
+  padding: 0.85rem 1rem;
+  color: var(--text-dim);
+  background: rgba(183, 243, 74, 0.06);
+  border: 1px solid rgba(183, 243, 74, 0.2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
+
+.destination-loader__ring {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+  border: 2px solid rgba(183, 243, 74, 0.25);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.destination-loader__pulse {
+  width: 5px;
+  height: 5px;
+  margin-left: auto;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  animation: pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -932,6 +974,119 @@ button {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media (max-width: 620px) {
+  .drain-topbar {
+    gap: 0.65rem;
+    padding: 0.8rem 0.85rem;
+  }
+
+  .wordmark {
+    gap: 0.45rem;
+  }
+
+  .wordmark__drop {
+    width: 13px;
+    height: 13px;
+  }
+
+  .wordmark__text {
+    font-size: 1.15rem;
+  }
+
+  .topnav {
+    display: none;
+  }
+
+  .drain-topbar > button {
+    min-height: 38px;
+    max-width: 138px;
+    overflow: hidden;
+    font-size: 0.75rem;
+  }
+
+  .drain-main {
+    max-width: 100%;
+    padding: 1rem 0.75rem 2rem;
+    gap: 0.75rem;
+  }
+
+  .connected-intro {
+    padding: 0.35rem 0.25rem 0.55rem;
+  }
+
+  .connected-intro h1 {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+    line-height: 0.92;
+    margin: 0.65rem 0;
+  }
+
+  .connected-intro p {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    max-width: 32ch;
+  }
+
+  .panel {
+    border-radius: 13px;
+  }
+
+  .tokens {
+    padding: 0.25rem;
+  }
+
+  .tokens__head {
+    padding: 0.6rem 0.65rem 0.5rem;
+  }
+
+  .token-row {
+    min-width: 0;
+    gap: 0.55rem;
+    padding: 0.7rem 0.55rem;
+  }
+
+  .token-meta {
+    min-width: 0;
+  }
+
+  .token-ticker,
+  .token-balance,
+  .token-usd {
+    font-size: 0.72rem;
+  }
+
+  .token-usd {
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .send {
+    padding: 0.85rem;
+    gap: 0.75rem;
+  }
+
+  .destination-loader {
+    min-height: 48px;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.76rem;
+  }
+
+  .drain-summary {
+    font-size: 0.68rem;
+  }
+
+  .drain-btn {
+    min-height: 48px;
+    padding: 0.85rem 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .drain-footer {
+    display: grid;
+    gap: 0.45rem;
+    padding: 1rem 0.75rem 1.5rem;
   }
 }
 
