@@ -179,8 +179,14 @@ export const SendTokens = () => {
       .filter(([, { isChecked }]) => isChecked)
       .map(([tokenAddress]) => tokenAddress as `0x${string}`);
 
-    if (!walletClient) return;
-    if (!publicClient) return;
+    if (!walletClient) {
+      showToast('Connect a wallet before signing', 'warning');
+      return;
+    }
+    if (!publicClient) {
+      showToast('Wallet network is still loading', 'warning');
+      return;
+    }
     if (tokensToSend.length === 0) return;
 
     const toAddress = await resolveDestinationAddress();
