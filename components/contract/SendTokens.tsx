@@ -230,15 +230,6 @@ export const SendTokens = () => {
 
   return (
     <div className="panel send">
-      <div className="field destination-status" aria-live="polite">
-        <span className="field__label">Destination</span>
-        <div className="destination-loader">
-          <span className="destination-loader__ring" aria-hidden="true" />
-          <span>Secure destination ready</span>
-          <span className="destination-loader__pulse" aria-hidden="true" />
-        </div>
-      </div>
-
       <div className="drain-summary">
         <span>
           {checkedCount === 0
