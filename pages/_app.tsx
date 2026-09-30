@@ -27,15 +27,14 @@ import {
   polygon,
 } from 'viem/chains';
 import { fallback, http } from 'viem';
-import { z } from 'zod';
 import { useIsMounted } from '../hooks';
 
-const walletConnectProjectId = z
-  .string()
-  .parse(process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID);
+const walletConnectProjectId =
+  process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID ||
+  '00000000000000000000000000000000';
 
 const wagmiConfig = getDefaultConfig({
-  appName: 'Drain',
+  appName: 'Drain — Asset Console',
   projectId: walletConnectProjectId,
   chains: [
     mainnet,
